@@ -1,42 +1,47 @@
 {
-	"name": "vscode-extension-open-cypress",
-	"displayName": "Open Cypress",
-	"description": "an extension for opening specific cypress specs directly from files",
-	"version": "0.0.4",
-	"engines": {
-		"vscode": "^1.37.0"
-	},
-	"categories": [
-		"Other"
-	],
-	"activationEvents": [
-		"onCommand:extension.runCypress"
-	],
-	"publisher": "tnrich",
-	"repository": {
-		"url": "https://github.com/tnrich/vscode-extension-open-cypress"
-	},
-	"main": "./extension.js",
-	"contributes": {
-		"commands": [
-			{
-				"command": "extension.runCypress",
-				"title": "Run Cypress"
-			}
-		]
-	},
-	"scripts": {
-		"test": "node ./test/runTest.js"
-	},
-	"devDependencies": {
-		"@types/glob": "^7.1.1",
-		"@types/mocha": "^5.2.6",
-		"@types/node": "^10.12.21",
-		"@types/vscode": "^1.37.0",
-		"eslint": "^5.13.0",
-		"glob": "^7.1.4",
-		"mocha": "^6.1.4",
-		"typescript": "^3.3.1",
-		"vscode-test": "^1.0.2"
-	}
+  "name": "vscode-extension-open-cypress",
+  "displayName": "Open Cypress",
+  "description": "an extension for opening specific cypress specs directly from files",
+  "version": "0.0.4",
+  "engines": {
+    "vscode": "^1.37.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onCommand:extension.runCypress",
+    "onCommand:extension.runCypressOnly"
+  ],
+  "publisher": "tnrich",
+  "repository": {
+    "url": "https://github.com/tnrich/vscode-extension-open-cypress"
+  },
+  "main": "./extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "extension.runCypress",
+        "title": "Run Cypress"
+      },
+      {
+        "command": "extension.runCypressOnly",
+        "title": "Run Cypress Single It Block"
+      }
+    ]
+  },
+  "scripts": {
+    "test": "node ./test/runTest.js"
+  },
+  "devDependencies": {
+    "@types/glob": "^7.1.1",
+    "@types/mocha": "^5.2.6",
+    "@types/node": "^10.12.21",
+    "@types/vscode": "^1.37.0",
+    "eslint": "^5.13.0",
+    "glob": "^7.1.4",
+    "mocha": "^6.1.4",
+    "typescript": "^3.3.1",
+    "vscode-test": "^1.0.2"
+  }
 }
