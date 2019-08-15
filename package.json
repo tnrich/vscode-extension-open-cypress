@@ -1,6 +1,6 @@
 {
 	"name": "vscode-extension-open-cypress",
-	"displayName": "vscode-extension-open-cypress",
+	"displayName": "Open Cypress",
 	"description": "an extension for opening specific cypress specs directly from files",
 	"version": "0.0.1",
 	"engines": {
@@ -12,6 +12,8 @@
 	"activationEvents": [
 		"onCommand:extension.runCypress"
 	],
+	"publisher": "tnrich",
+	"repository": {"url": "https://github.com/tnrich/vscode-extension-open-cypress"},
 	"main": "./extension.js",
 	"contributes": {
 		"commands": [{
