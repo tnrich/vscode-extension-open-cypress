@@ -34,7 +34,7 @@ function activate(context) {
 
       terminal.show();
       terminal.sendText(
-        `yarn cypress open --config testFiles=${currentlyOpenTabfilePath}`
+        `npm run cypress open --config testFiles=${currentlyOpenTabfilePath}`
       );
     })
   );
@@ -78,7 +78,7 @@ function activate(context) {
 
       terminal.show();
       terminal.sendText(
-        `yarn cypress open --config testFiles=${currentlyOpenTabfilePath}`
+        `npm run cypress open --config testFiles=${currentlyOpenTabfilePath}`
       );
     })
   );
