@@ -34,7 +34,7 @@ function activate(context) {
 
       terminal.show();
       terminal.sendText(
-        `npm run cypress open --config testFiles=${currentlyOpenTabfilePath}`
+        `./node_modules/.bin/cypress open open --config testFiles=${currentlyOpenTabfilePath}`
       );
     })
   );
@@ -78,7 +78,7 @@ function activate(context) {
 
       terminal.show();
       terminal.sendText(
-        `npm run cypress open --config testFiles=${currentlyOpenTabfilePath}`
+        `./node_modules/.bin/cypress open open --config testFiles=${currentlyOpenTabfilePath}`
       );
     })
   );
