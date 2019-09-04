@@ -34,7 +34,7 @@ function activate(context) {
 
       terminal.show();
       terminal.sendText(
-        `./node_modules/.bin/cypress open open --config testFiles=${currentlyOpenTabfilePath}`
+        `./node_modules/.bin/cypress open --config testFiles="${currentlyOpenTabfilePath}"`
       );
     })
   );
@@ -77,8 +77,8 @@ function activate(context) {
       // var text = editor.document.getText(selection);
 
       terminal.show();
-      terminal.sendText(
-        `./node_modules/.bin/cypress open open --config testFiles=${currentlyOpenTabfilePath}`
+      terminal.sendT
+         `
       );
     })
   );
