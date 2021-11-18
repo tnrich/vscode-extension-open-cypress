@@ -20,7 +20,7 @@ function activate(context) {
   // The commandId parameter must match the command field in package.json
 
   context.subscriptions.push(
-    vscode.commands.registerCommand("extension.runCypress", function() {
+    vscode.commands.registerCommand("extension.runCypress", function () {
       // The code you place here will be executed every time your command is executed
 
       // Display a message box to the user
@@ -33,11 +33,13 @@ function activate(context) {
       // var text = editor.document.getText(selection);
 
       terminal.show();
-      terminal.sendText(`npx cypress open --config testFiles="${currentlyOpenTabfilePath}"`);
+      terminal.sendText(
+        `cd ${currentlyOpenTabfilePath} && npx cypress open --config testFiles="${currentlyOpenTabfilePath}"`
+      );
     })
   );
   context.subscriptions.push(
-    vscode.commands.registerCommand("extension.runCypressOnly", function() {
+    vscode.commands.registerCommand("extension.runCypressOnly", function () {
       // The code you place here will be executed every time your command is executed
 
       // Display a message box to the user
@@ -54,19 +56,21 @@ function activate(context) {
       if (!text.includes("it.only(")) {
         const indexOfIt = text.indexOf("it(");
         if (indexOfIt !== -1) {
-          editor.edit(editBuilder => {
-            //editor is an object of active text editor
+          editor
+            .edit((editBuilder) => {
+              //editor is an object of active text editor
 
-            editBuilder.replace(
-              new vscode.Position(
-                editor.selection.active.line,
-                indexOfIt + 2
-              ),
-              ".only"
-            ); // text = 'dummydummydummy'
-          }).then(() => {
-						editor.document.save()
-					})
+              editBuilder.replace(
+                new vscode.Position(
+                  editor.selection.active.line,
+                  indexOfIt + 2
+                ),
+                ".only"
+              ); // text = 'dummydummydummy'
+            })
+            .then(() => {
+              editor.document.save();
+            });
         }
       }
 
@@ -75,7 +79,12 @@ function activate(context) {
       // var text = editor.document.getText(selection);
 
       terminal.show();
-      terminal.sendText(`npx cypress open --config testFiles="${currentlyOpenTabfilePath}"`);
+      terminal.sendText(
+        `cd ${currentlyOpenTabfilePath.replace( //remove the filename from the path
+          /[^\/]*$/,
+          ""
+        )} && npx cypress open --config testFiles="${currentlyOpenTabfilePath}"`
+      );
     })
   );
 }
@@ -86,5 +95,5 @@ function deactivate() {}
 
 module.exports = {
   activate,
-  deactivate
+  deactivate,
 };
