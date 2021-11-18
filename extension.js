@@ -33,7 +33,7 @@ function activate(context) {
       // var text = editor.document.getText(selection);
 
       terminal.show();
-      terminal.sendText(`./node_modules/.bin/cypress open --config testFiles="${currentlyOpenTabfilePath}"`);
+      terminal.sendText(`npx cypress open --config testFiles="${currentlyOpenTabfilePath}"`);
     })
   );
   context.subscriptions.push(
@@ -75,7 +75,7 @@ function activate(context) {
       // var text = editor.document.getText(selection);
 
       terminal.show();
-      terminal.sendText(`./node_modules/.bin/cypress open --config testFiles="${currentlyOpenTabfilePath}"`);
+      terminal.sendText(`npx cypress open --config testFiles="${currentlyOpenTabfilePath}"`);
     })
   );
 }
